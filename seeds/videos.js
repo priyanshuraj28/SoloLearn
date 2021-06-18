@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const { fName, lName } = require('./seedsHelper');
-const Videos = require('../models/courses');
+const Videos = require('../models/videos')
 
 mongoose.connect('mongodb://localhost:27017/solo-learn', {
     useNewUrlParser: true,

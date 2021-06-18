@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const { fName, lName } = require('./seedsHelper');
-const Videos = require('../models/courses');
+const Videos = require('../models/sections')
 
 mongoose.connect('mongodb://localhost:27017/solo-learn', {
     useNewUrlParser: true,
@@ -18,7 +18,7 @@ const seedVideos = async () => {
     await Videos.deleteMany({});
     for (let i = 0; i < 50; i++) {
         const random = Math.floor(Math.random() * 11);
-        const videos = new Videos({
+        const sections = new Videos({
             title: `${fName[random]} ${lName[random]}`,
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil rem quasi neque sapiente, hic at facilis illum non, quae quam reprehenderit consectetur aliquid officiis quas architecto numquam dignissimos. Nostrum, delectus.',
         })
