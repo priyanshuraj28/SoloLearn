@@ -17,9 +17,10 @@ db.once("open", () => {
 const seedVideos = async () => {
     await Videos.deleteMany({});
     for (let i = 0; i < 50; i++) {
-        const random = Math.floor(Math.random() * 11);
+        const randomf = Math.floor(Math.random() * fName.length);
+        const randoml = Math.floor(Math.random() * lName.length);
         const videos = new Videos({
-            title: `${fName[random]} ${lName[random]}`,
+            title: `${fName[randomf]} ${lName[randoml]}`,
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil rem quasi neque sapiente, hic at facilis illum non, quae quam reprehenderit consectetur aliquid officiis quas architecto numquam dignissimos. Nostrum, delectus.',
         })
         await videos.save();
