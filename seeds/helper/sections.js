@@ -1,13 +1,12 @@
 const Videos = require('../../models/videos');
 
-module.exports.generateRandomVideos = () => {
+module.exports.generateRandomVideos = async () => {
     var v = []
-    const randomVideosNo = Math.floor(Math.random() * 10);
-    for (let j = 0; j < randomVideosNo; j++) {
-        const randomVideo = Math.floor(Math.random() * 48) + 1;
-        Videos.findOne().skip(randomVideo).exec((err, result) => {
-            v.push(String(result._id));
-        })
+    const noOfVideos = Math.floor(Math.random() * 9 + 1);
+    for (let i = 0; i < noOfVideos; i++) {
+        const rand = Math.floor(Math.random() * 50)
+        const randomVideo = await Videos.findOne().skip(rand);
+        v.push(String(randomVideo._id))
     }
     return v;
 }

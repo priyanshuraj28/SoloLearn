@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const { fName, lName } = require('./seedsHelper');
+const { fName, lName } = require('./helper/nameRandom');
 const Videos = require('../models/courses');
 
 mongoose.connect('mongodb://localhost:27017/solo-learn', {
