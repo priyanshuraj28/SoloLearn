@@ -1,15 +1,15 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const CoursesSchema = new Schema({
+const courseSchema = new Schema({
     title: String,
     description: String,
     sections: [
         {
             type: Schema.Types.ObjectId,
-            ref: 'Sections'
+            ref: 'Section'
         }
     ]
 })
 
-module.exports = mongoose.model('Courses', CoursesSchema);
+module.exports = mongoose.model('Course', courseSchema);

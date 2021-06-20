@@ -1,4 +1,4 @@
-const Sections = require('../../models/sections');
+const Sections = require('../../models/section');
 
 module.exports.generateRandomSections = async () => {
     var s = []

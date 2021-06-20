@@ -1,4 +1,4 @@
-const Videos = require('../../models/videos');
+const Videos = require('../../models/video');
 
 module.exports.generateRandomVideos = async () => {
     var v = []
