@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const { fName, lName } = require('./helper/nameRandom');
-const Videos = require('../models/courses');
+const Courses = require('../models/courses');
+const { generateRandomSections } = require('./helper/courses');
 
 mongoose.connect('mongodb://localhost:27017/solo-learn', {
     useNewUrlParser: true,
@@ -14,18 +15,20 @@ db.once("open", () => {
     console.log("Database connected");
 });
 
-const seedVideos = async () => {
-    await Videos.deleteMany({});
+const seedCourses = async () => {
+    await Courses.deleteMany({});
     for (let i = 0; i < 50; i++) {
         const random = Math.floor(Math.random() * 11);
-        const videos = new Videos({
+        sections = await generateRandomSections();
+        const course = new Courses({
             title: `${fName[random]} ${lName[random]}`,
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil rem quasi neque sapiente, hic at facilis illum non, quae quam reprehenderit consectetur aliquid officiis quas architecto numquam dignissimos. Nostrum, delectus.',
+            sections
         })
-        await videos.save();
+        await course.save();
     }
 }
 
-seedVideos().then(() => {
+seedCourses().then(() => {
     mongoose.connection.close();
 });
