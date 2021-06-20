@@ -33,8 +33,12 @@ app.get("/beInstructor", (req, res) => {
     res.render("beInstructor");
 })
 
-app.get("/:id/course/view", (req, res) => {
-    res.render("courseView");
+app.get("/:id/course/view", async (req, res) => {
+    const course = await Courses.findById(req.params.id);
+    if (!course) {
+        res.send("Cannot find the required Course");
+    }
+    res.render("courseView", { course });
 })
 
 app.get("/:id/course/description", async (req, res) => {
@@ -42,7 +46,6 @@ app.get("/:id/course/description", async (req, res) => {
     if (!course) {
         res.send("Cannot find the required Course");
     }
-    console.log(course.sections[1]);
     res.render("courseDescription", { course });
 })
 
