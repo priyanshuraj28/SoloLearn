@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const { fName, lName } = require('./helper/nameRandom');
-const Courses = require('../models/courses');
+const Courses = require('../models/course');
 const { generateRandomSections } = require('./helper/courses');
 
 mongoose.connect('mongodb://localhost:27017/solo-learn', {

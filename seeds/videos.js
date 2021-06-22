@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const { fName, lName } = require('./helper/nameRandom');
-const Videos = require('../models/videos')
+const Videos = require('../models/video')
 
 mongoose.connect('mongodb://localhost:27017/solo-learn', {
     useNewUrlParser: true,
